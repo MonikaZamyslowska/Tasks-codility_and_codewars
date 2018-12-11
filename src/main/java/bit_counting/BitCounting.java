@@ -1,10 +1,5 @@
 package bit_counting;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-
 public class BitCounting {
     /*
     Write a function that takes an integer as input, and returns the number of bits that are equal to one in the binary
@@ -13,13 +8,6 @@ public class BitCounting {
      */
 
     public static int countBits(int n){
-        String convert = Integer.toBinaryString(n);
-        List<String> binaryList = new ArrayList(Arrays.asList(convert.split("")));
-
-        binaryList = binaryList.stream()
-                .filter(character -> character.equals("1"))
-                .collect(Collectors.toList());
-
-        return binaryList.size();
+        return (int)Integer.toBinaryString(n).chars().filter(c -> c == 1).count();
     }
 }
