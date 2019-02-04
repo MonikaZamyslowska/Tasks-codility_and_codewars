@@ -23,18 +23,18 @@ N is an integer within the range [1..2,147,483,647].
         int binaryGap = 0;
         String binaryString = Integer.toBinaryString(N);
         char[] binaryArray = binaryString.toCharArray();
-        int gapLenght = 0;
+        int gapLength = 0;
 
         for (char c : binaryArray) {
             if (c == '0') {
-                gapLenght++;
+                gapLength++;
             }
 
             else if (c == '1') {
-                if (gapLenght > binaryGap){
-                    binaryGap = gapLenght;
+                if (gapLength > binaryGap){
+                    binaryGap = gapLength;
                 }
-                gapLenght = 0;
+                gapLength = 0;
             }
         }
 
