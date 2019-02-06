@@ -1,5 +1,6 @@
 package odd_occurrences_in_array;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -36,15 +37,17 @@ public class Solution {
     all but one of the values in A occur an even number of times.
      */
 
-    public static int solutions(int[] array) {
-        List<Integer> allNumbers = Arrays.stream(array).boxed()
-                .collect(Collectors.toList());
+    public static int solution(int[] A) {
+        List<Integer> pairs = new ArrayList();
 
-        int num = allNumbers.stream()
-                .filter(integer -> Collections.frequency(allNumbers, integer) == 1)
-                .findFirst()
-                .get();
+        for (int number : A) {
+            if (pairs.contains(number)) {
+                pairs.remove(pairs.indexOf(number));
+            } else {
+                pairs.add(number);
+            }
+        }
 
-        return num;
+        return pairs.get(0);
     }
 }
