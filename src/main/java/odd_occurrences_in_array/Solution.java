@@ -38,16 +38,11 @@ public class Solution {
      */
 
     public static int solution(int[] A) {
-        List<Integer> pairs = new ArrayList();
+        Arrays.sort(A);
+        int i;
 
-        for (int number : A) {
-            if (pairs.contains(number)) {
-                pairs.remove(pairs.indexOf(number));
-            } else {
-                pairs.add(number);
-            }
-        }
+        for (i = 0; i < A.length && A[i] == A[i + 1]; i+=2);
 
-        return pairs.get(0);
+        return A[i];
     }
 }
