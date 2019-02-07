@@ -42,8 +42,8 @@ public class Solution {
      */
 
     public static int[] solution(int[] A, int K) {
-        if (A == null) {
-            return null;
+        if (A.length == 0 || K == 0) {
+            return A;
         }
         List<Integer> reverseList = Arrays.stream(A).boxed().collect(Collectors.toList());
 
